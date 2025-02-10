@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-$mydb = new mysqli('127.0.0.1','root','12345','testdb');
+$mydb = new mysqli('127.0.0.1','testUser','12345','testdb');
 
 if ($mydb->errno != 0)
 {
@@ -21,5 +21,9 @@ if ($mydb->errno != 0)
 	exit(0);
 }
 
+echo "Result: \n";
+while($row = $response->fetch_array()){
+echo   $row['name'] . " is in year " . $row['year'] . "\n";
+}
 
 ?>
